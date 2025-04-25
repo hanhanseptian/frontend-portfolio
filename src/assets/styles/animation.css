@@ -7,8 +7,8 @@
     opacity: 1;
   }
 }
-.fade-in {
-  animation: fadeIn 0.8s ease-in-out;
+.animate-fade-in {
+  animation: fadeIn 2s ease-in-out;
 }
 @keyframes fadeOut {
   0% {
@@ -18,7 +18,7 @@
     opacity: 0;
   }
 }
-.fade-out {
+.animate-fade-out {
   animation: fadeOut 0.5s ease-in-out;
 }
 @keyframes slideIn {
@@ -29,7 +29,7 @@
     transform: translateY(0);
   }
 }
-.slide-in {
+.animate-slide-in {
   animation: slideIn 0.5s ease-in-out;
 }
 @keyframes slideOut {
@@ -40,7 +40,7 @@
     transform: translateY(-100%);
   }
 }
-.slide-out {
+.animate-slide-out {
   animation: slideOut 0.5s ease-in-out;
 }
 @keyframes scaleIn {
@@ -51,7 +51,7 @@
     transform: scale(1);
   }
 }
-.scale-in {
+.animate-scale-in {
   animation: scaleIn 0.5s ease-in-out;
 }
 @keyframes scaleOut {
@@ -62,7 +62,7 @@
     transform: scale(0);
   }
 }
-.scale-out {
+.animate-scale-out {
   animation: scaleOut 0.5s ease-in-out;
 }
 @keyframes rotateIn {
@@ -73,7 +73,7 @@
     transform: rotate(360deg);
   }
 }
-.rotate-in {
+.animate-rotate-in {
   animation: rotateIn 0.5s ease-in-out;
 }
 @keyframes rotateOut {
@@ -84,7 +84,7 @@
     transform: rotate(0deg);
   }
 }
-.rotate-out {
+.animate-rotate-out {
   animation: rotateOut 0.5s ease-in-out;
 }
 @keyframes bounceIn {
@@ -98,10 +98,7 @@
     transform: translateY(-20px);
   }
 }
-.bounce-in {
-  animation: bounceIn 0.5s ease-in-out;
-}
-.hover-bounce-in:hover {
+.animate-bounce-in {
   animation: bounceIn 0.5s ease-in-out;
 }
 @keyframes bounceOut {
@@ -115,10 +112,7 @@
     transform: translateY(-100%);
   }
 }
-.bounce-out {
-  animation: bounceOut 0.5s ease-in-out;
-}
-.hover-bounce-in:hover {
+.animate-bounce-out {
   animation: bounceOut 0.5s ease-in-out;
 }
 @keyframes shake {
@@ -138,39 +132,8 @@
     transform: translateX(0);
   }
 }
-.shake {
+.animate-shake {
   animation: shake 0.5s ease-in-out;
-}
-.hover-shake:hover {
-  animation: shake 0.5s ease-in-out;
-}
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-.pulse {
-  animation: pulse 0.5s ease-in-out;
-}
-@keyframes flash {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-.flash {
-  animation: flash 0.5s ease-in-out;
 }
 @keyframes wobble {
   0% {
@@ -189,7 +152,7 @@
     transform: rotate(0deg);
   }
 }
-.wobble {
+.animate-wobble {
   animation: wobble 0.5s ease-in-out;
 }
 @keyframes swing {
@@ -209,7 +172,7 @@
     transform: rotate(0deg);
   }
 }
-.swing {
+.animate-swing {
   animation: swing 0.5s ease-in-out;
 }
 @keyframes tada {
@@ -247,7 +210,7 @@
     transform: scale(1);
   }
 }
-.tada {
+.animate-tada {
   animation: tada 0.5s ease-in-out;
 }
 @keyframes flip {
@@ -261,7 +224,7 @@
     transform: rotateY(0deg);
   }
 }
-.flip {
+.animate-flip {
   animation: flip 0.5s ease-in-out;
 }
 @keyframes flipInX {
@@ -272,7 +235,7 @@
     transform: rotateX(0deg);
   }
 }
-.flip-in-x {
+.animate-flip-in-x {
   animation: flipInX 0.5s ease-in-out;
 }
 @keyframes flipOutX {
@@ -283,7 +246,7 @@
     transform: rotateX(-90deg);
   }
 }
-.flip-out-x {
+.animate-flip-out-x {
   animation: flipOutX 0.5s ease-in-out;
 }
 @keyframes flipInY {
@@ -294,7 +257,7 @@
     transform: rotateY(0deg);
   }
 }
-.flip-in-y {
+.animate-flip-in-y {
   animation: flipInY 0.5s ease-in-out;
 }
 @keyframes flipOutY {
@@ -305,7 +268,7 @@
     transform: rotateY(-90deg);
   }
 }
-.flip-out-y {
+.animate-flip-out-y {
   animation: flipOutY 0.5s ease-in-out;
 }
 @keyframes lightSpeedIn {
@@ -324,7 +287,7 @@
     transform: translateX(0) skewX(0);
   }
 }
-.light-speed-in {
+.animate-light-speed-in {
   animation: lightSpeedIn 0.5s ease-in-out;
 }
 @keyframes lightSpeedOut {
@@ -341,7 +304,7 @@
     opacity: 0;
   }
 }
-.light-speed-out {
+.animate-light-speed-out {
   animation: lightSpeedOut 0.5s ease-in-out;
 }
 @keyframes rollIn {
@@ -354,8 +317,8 @@
     opacity: 1;
   }
 }
-.roll-in {
-  animation: rollIn 0.5s ease-in-out;
+.animate-roll-in {
+  animation: rollIn 1.5s ease-in-out;
 }
 @keyframes rollOut {
   0% {
@@ -367,7 +330,7 @@
     opacity: 0;
   }
 }
-.roll-out {
+.animate-roll-out {
   animation: rollOut 0.5s ease-in-out;
 }
 @keyframes zoomIn {
@@ -378,8 +341,8 @@
     transform: scale(1);
   }
 }
-.zoom-in {
-  animation: zoomIn 0.5s ease-in-out;
+.animate-zoom-in {
+  animation: zoomIn 1.5s ease-in-out;
 }
 @keyframes zoomOut {
   0% {
@@ -389,7 +352,7 @@
     transform: scale(0);
   }
 }
-.zoom-out {
+.animate-zoom-out {
   animation: zoomOut 0.5s ease-in-out;
 }
 @keyframes zoomInDown {
@@ -400,7 +363,7 @@
     transform: scale(1) translateY(0);
   }
 }
-.zoom-in-down {
+.animate-zoom-in-down {
   animation: zoomInDown 0.5s ease-in-out;
 }
 @keyframes zoomOutDown {
@@ -411,7 +374,7 @@
     transform: scale(0) translateY(-100%);
   }
 }
-.zoom-out-down {
+.animate-zoom-out-down {
   animation: zoomOutDown 0.5s ease-in-out;
 }
 @keyframes zoomInUp {
@@ -422,6 +385,6 @@
     transform: scale(1) translateY(0);
   }
 }
-.zoom-in-up {
+.animate-zoom-in-up {
   animation: zoomInUp 0.5s ease-in-out;
 }

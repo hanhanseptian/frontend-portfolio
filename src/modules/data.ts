@@ -40,6 +40,9 @@ export const contacts = {
     icon: "fa-brands fa-whatsapp",
     color: "text-green-500",
   },
+  portfolio: {
+    link: "https://bit.ly/portfolio-hanhan-septian",
+  },
 };
 export const educations = [
   {
