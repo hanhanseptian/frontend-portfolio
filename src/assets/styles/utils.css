@@ -1,0 +1,13 @@
+.text-primary {
+  color: #c8f31d;
+}
+.bg-primary {
+  background-color: #c8f31d;
+}
+.font-caveat {
+  font-family: "Caveat", "Baloo 2";
+}
+.outlined-img {
+  filter: drop-shadow(0 0 0 white) drop-shadow(0.5px 0.5px 0 white)
+    drop-shadow(-0.5px -0.5px 0 white);
+}
