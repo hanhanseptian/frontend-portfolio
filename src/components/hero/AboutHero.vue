@@ -29,15 +29,11 @@ useIntersectionObserver(title_el, ([{ isIntersecting }]) => {
   if (isIntersecting) {
     is_title_visible.value = true;
     store.changeNav("ABOUT");
-  } else {
-    is_title_visible.value = false;
   }
 });
 useIntersectionObserver(info_el, ([{ isIntersecting }]) => {
   if (isIntersecting) {
     is_info_visible.value = true;
-  } else {
-    is_info_visible.value = false;
   }
 });
 </script>

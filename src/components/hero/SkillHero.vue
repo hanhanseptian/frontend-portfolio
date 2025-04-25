@@ -28,15 +28,11 @@ useIntersectionObserver(title_el, ([{ isIntersecting }]) => {
   if (isIntersecting) {
     is_title_visible.value = true;
     store.changeNav("SKILLS");
-  } else {
-    is_title_visible.value = false;
   }
 });
 useIntersectionObserver(tech_el, ([{ isIntersecting }]) => {
   if (isIntersecting) {
     is_tech_visible.value = true;
-  } else {
-    is_tech_visible.value = false;
   }
 });
 </script>

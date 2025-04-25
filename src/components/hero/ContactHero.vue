@@ -13,8 +13,6 @@ useIntersectionObserver(title_el, ([{ isIntersecting }]) => {
   if (isIntersecting) {
     is_title_visible.value = true;
     store.changeNav("CONTACT");
-  } else {
-    is_title_visible.value = false;
   }
 });
 </script>
