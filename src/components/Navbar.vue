@@ -1,11 +1,13 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, watch } from "vue";
 import RGBButton from "./utils/RGBButton.vue";
 import { contacts } from "@/modules/data";
 import { isMobileScreen } from "@/modules";
 import Drawer from "./utils/Drawer.vue";
+import { useStateManagement } from "@/stores";
 
 // VARIABLES
+const store = useStateManagement();
 const navigations = ref([
   { name: "HOME", path: "#home" },
   { name: "ABOUT", path: "#about" },
@@ -13,14 +15,26 @@ const navigations = ref([
   { name: "SKILLS", path: "#skills" },
   { name: "CONTACT", path: "#contact" },
 ]);
-const current_nav = ref("HOME");
+const current_nav = ref(store.getCurrentNav);
+
+// LIFECYCLE HOOKS
+watch(
+  () => store.getCurrentNav,
+  () => {
+    current_nav.value = store.getCurrentNav;
+  }
+);
 </script>
 <template>
   <div class="navbar p-5 mx-5 sm:mx-10">
-    <router-link class="text-lg sm:text-4xl font-semibold" to="#home">
+    <a
+      href="#home"
+      class="text-lg sm:text-4xl font-semibold"
+      @click="(current_nav = 'HOME'), store.changeNav('HOME')"
+    >
       <div class="fa-solid fa-fire text-primary"></div>
       Hanhan Septian
-    </router-link>
+    </a>
     <div class="hidden sm:flex gap-5 flex-wrap justify-center">
       <div v-for="nav in navigations">
         <a
@@ -28,7 +42,7 @@ const current_nav = ref("HOME");
           :href="nav.path"
           class="nav-link md:text-xl"
           :class="{ 'nav-active': current_nav === nav.name }"
-          @click="current_nav = nav.name"
+          @click="(current_nav = nav.name), store.changeNav(nav.name)"
         >
           {{ nav.name }}
         </a>
@@ -57,10 +71,14 @@ const current_nav = ref("HOME");
         </template>
         <template #content>
           <div>
-            <router-link class="text-lg sm:text-4xl font-semibold" to="#home">
+            <a
+              href="#home"
+              class="text-lg sm:text-4xl font-semibold"
+              @click="(current_nav = 'HOME'), store.changeNav('HOME')"
+            >
               <div class="fa-solid fa-fire text-primary"></div>
               Hanhan Septian
-            </router-link>
+            </a>
             <div class="mt-5">
               <div v-for="nav in navigations">
                 <a
@@ -68,7 +86,7 @@ const current_nav = ref("HOME");
                   :href="nav.path"
                   class="nav-link md:text-xl"
                   :class="{ 'nav-active': current_nav === nav.name }"
-                  @click="current_nav = nav.name"
+                  @click="(current_nav = nav.name), store.changeNav(nav.name)"
                 >
                   {{ nav.name }}
                 </a>

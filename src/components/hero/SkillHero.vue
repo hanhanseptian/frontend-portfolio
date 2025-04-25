@@ -7,8 +7,11 @@ import {
   tools,
 } from "@/modules/data";
 import { ref } from "vue";
+import { useIntersectionObserver } from "@vueuse/core";
+import { useStateManagement } from "@/stores";
 
 // VARIABLES
+const store = useStateManagement();
 const tech_stack = ref([
   ...programming_languages,
   ...frameworks,
@@ -16,28 +19,57 @@ const tech_stack = ref([
   ...libraries,
   ...tools,
 ]);
+const title_el = ref(null);
+const is_title_visible = ref(false);
+const tech_el = ref(null);
+const is_tech_visible = ref(false);
+
+useIntersectionObserver(title_el, ([{ isIntersecting }]) => {
+  if (isIntersecting) {
+    is_title_visible.value = true;
+    store.changeNav("SKILLS");
+  } else {
+    is_title_visible.value = false;
+  }
+});
+useIntersectionObserver(tech_el, ([{ isIntersecting }]) => {
+  if (isIntersecting) {
+    is_tech_visible.value = true;
+  } else {
+    is_tech_visible.value = false;
+  }
+});
 </script>
 
 <template>
   <div id="skills" class="pt-15 sm:pt-34 pb-5 sm:pb-10 sm:px-10">
     <div class="grid grid-cols-12 text-right">
-      <div class="col-span-12 sm:col-span-4 flex justify-center sm:justify-end">
+      <div
+        class="col-span-12 sm:col-span-4 flex justify-center sm:justify-end"
+        :class="is_title_visible ? 'animate-zoom-in' : 'opacity-0'"
+      >
         <img
           src="@/assets/images/animation-personal-006.png"
           alt=""
           class="w-[200px] sm:w-auto"
         />
       </div>
-      <div class="col-span-12 sm:col-span-8">
+      <div ref="title_el" class="col-span-12 sm:col-span-8">
         <div
           class="text-xl sm:text-5xl mt-5 sm:mt-0 items-end font-bold text-primary font-caveat"
         >
-          <div class="flex items-center justify-end gap-5">
+          <div
+            class="flex items-center justify-end gap-5"
+            :class="is_title_visible ? 'animate-fade-in' : 'opacity-0'"
+          >
             <hr class="w-30" />
             Programming Skills
           </div>
         </div>
-        <div class="flex flex-col justify-end mt-5 sm:mt-24">
+        <div
+          class="flex flex-col justify-end mt-5 sm:mt-24"
+          :class="is_title_visible ? 'animate-fade-in' : 'opacity-0'"
+        >
           <div class="text-3xl sm:text-6xl font-bold">From Logic to launch</div>
           <div class="text-xl sm:text-5xl font-bold">
             Always learning, optimizing, and pushing boundaries with code
@@ -49,14 +81,21 @@ const tech_stack = ref([
       <div
         class="bg-[#111112] rounded-[50px] sm:rounded-[100px] py-5 sm:py-30 w-12/12"
       >
-        <div class="text-center">
+        <div
+          class="text-center"
+          :class="is_tech_visible ? 'animate-fade-in' : 'opacity-0'"
+        >
           <i class="fa-solid fa-code text-primary text-3xl sm:text-6xl"></i>
           <div class="text-xl sm:text-3xl mt-3">Tech Stack</div>
         </div>
-        <div class="mt-5 sm:mt-10 w-full overflow-hidden">
+        <div
+          ref="tech_el"
+          class="mt-5 sm:mt-10 w-full overflow-hidden"
+          :class="is_tech_visible ? 'animate-zoom-in' : 'opacity-0'"
+        >
           <div class="flex w-max marquee paused">
             <div class="flex gap-4">
-              <div v-for="item in tech_stack">
+              <div v-for="item in tech_stack" class="animate-pulse">
                 <div class="p-5 sm:p-10 bg-neutral-950 rounded-2xl">
                   <div
                     class="text-center flex flex-col items-center justify-center"

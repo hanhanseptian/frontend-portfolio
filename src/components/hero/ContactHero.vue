@@ -1,5 +1,22 @@
 <script setup lang="ts">
 import { contacts } from "@/modules/data";
+import { useStateManagement } from "@/stores";
+import { useIntersectionObserver } from "@vueuse/core";
+import { ref } from "vue";
+
+// VARIABLES
+const store = useStateManagement();
+const title_el = ref(null);
+const is_title_visible = ref(false);
+
+useIntersectionObserver(title_el, ([{ isIntersecting }]) => {
+  if (isIntersecting) {
+    is_title_visible.value = true;
+    store.changeNav("CONTACT");
+  } else {
+    is_title_visible.value = false;
+  }
+});
 </script>
 
 <template>
@@ -9,13 +26,20 @@ import { contacts } from "@/modules/data";
   >
     <div class="grid grid-cols-12">
       <div class="order-2 sm:order-1 col-span-12 sm:col-span-7 mt-10 sm:mt-0">
-        <div class="text-lg sm:text-3xl font-bold text-primary font-caveat">
+        <div
+          class="text-lg sm:text-3xl font-bold text-primary font-caveat"
+          :class="is_title_visible ? 'animate-fade-in' : 'opacity-0'"
+        >
           <div class="flex items-center gap-2">
             <hr class="w-20" />
             Need Some Project?
           </div>
         </div>
-        <div class="mt-5 sm:mt-16 flex flex-col">
+        <div
+          ref="title_el"
+          class="mt-5 sm:mt-16 flex flex-col"
+          :class="is_title_visible ? 'animate-fade-in' : 'opacity-0'"
+        >
           <div class="text-2xl sm:text-5xl font-bold">
             Let’s Build Something Together
           </div>
@@ -30,6 +54,7 @@ import { contacts } from "@/modules/data";
             :href="'mailto:' + contacts.email.address"
             target="_blank"
             class="flex items-center gap-5 bg-neutral-800 rounded-2xl p-3 sm:p-5 hover:scale-105 duration-300"
+            :class="is_title_visible ? 'animate-fade-in' : 'opacity-0'"
           >
             <div
               class="w-15 h-15 rounded-full bg-primary p-3 flex items-center justify-center"
@@ -59,6 +84,7 @@ import { contacts } from "@/modules/data";
             :href="contacts.address.link"
             target="_blank"
             class="mt-5 flex items-center gap-5 bg-neutral-800 rounded-2xl p-3 sm:p-5 hover:scale-105 duration-300"
+            :class="is_title_visible ? 'animate-fade-in' : 'opacity-0'"
           >
             <div
               class="w-15 h-15 rounded-full bg-primary p-3 flex items-center justify-center"

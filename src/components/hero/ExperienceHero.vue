@@ -2,8 +2,11 @@
 import { ref } from "vue";
 import WorkExperience from "./experience/WorkExperience.vue";
 import PersonalProject from "./experience/PersonalProject.vue";
+import { useIntersectionObserver } from "@vueuse/core";
+import { useStateManagement } from "@/stores";
 
 // VARIABLES
+const store = useStateManagement();
 const about_tabs = ref([
   {
     title: "Work Experience",
@@ -13,6 +16,26 @@ const about_tabs = ref([
   },
 ]);
 const current_tab = ref("Work Experience");
+const title_el = ref(null);
+const is_title_visible = ref(false);
+const exp_el = ref(null);
+const is_exp_visible = ref(false);
+
+useIntersectionObserver(title_el, ([{ isIntersecting }]) => {
+  if (isIntersecting) {
+    is_title_visible.value = true;
+    store.changeNav("EXPERIENCES");
+  } else {
+    is_title_visible.value = false;
+  }
+});
+useIntersectionObserver(exp_el, ([{ isIntersecting }]) => {
+  if (isIntersecting) {
+    is_exp_visible.value = true;
+  } else {
+    is_exp_visible.value = false;
+  }
+});
 </script>
 
 <template>
@@ -23,14 +46,19 @@ const current_tab = ref("Work Experience");
   >
     <div
       class="text-xl sm:text-5xl font-bold text-center text-primary mb-5 sm:mb-10 font-caveat"
+      :class="is_title_visible ? 'animate-zoom-in' : 'opacity-0'"
     >
-      <div class="flex items-center justify-center gap-5">
+      <div class="flex items-center justify-center gap-5 animate-pulse">
         <hr class="w-20" />
         Experiences
         <hr class="w-20" />
       </div>
     </div>
-    <div class="flex flex-col items-center justify-center">
+    <div
+      ref="title_el"
+      class="flex flex-col items-center justify-center"
+      :class="is_title_visible ? 'animate-scale-in' : 'opacity-0'"
+    >
       <div class="sm:w-8/12 text-center text-2xl sm:text-6xl font-bold">
         Hands-on with real projects
       </div>
@@ -39,7 +67,10 @@ const current_tab = ref("Work Experience");
       </div>
     </div>
     <div class="mt-10 sm:mt-20">
-      <div class="flex gap-2 sm:gap-5 justify-center items-center">
+      <div
+        class="flex gap-2 sm:gap-5 justify-center items-center"
+        :class="is_title_visible ? 'animate-zoom-in' : 'opacity-0'"
+      >
         <button
           v-for="item in about_tabs"
           class="rounded-xl text-xs sm:text-2xl px-3 sm:px-5 py-2 bg-neutral-900 hover:cursor-pointer hover:scale-110 duration-200"
@@ -52,14 +83,18 @@ const current_tab = ref("Work Experience");
         </button>
       </div>
     </div>
-    <div class="mt-10 sm:mt-20">
+    <div
+      ref="exp_el"
+      class="mt-10 sm:mt-20"
+      :class="is_exp_visible ? 'animate-zoom-in' : 'opacity-0'"
+    >
       <WorkExperience
         v-if="current_tab === 'Work Experience'"
-        class="fade-in"
+        class="animate-fade-in"
       />
       <PersonalProject
         v-else-if="current_tab === 'Personal Project'"
-        class="fade-in"
+        class="animate-fade-in"
       />
     </div>
   </div>

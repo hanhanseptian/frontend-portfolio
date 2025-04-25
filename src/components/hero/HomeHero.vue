@@ -1,6 +1,21 @@
 <script setup lang="ts">
+import { useStateManagement } from "@/stores";
 import RGBButton from "../utils/RGBButton.vue";
 import { social_media, contacts } from "@/modules/data";
+import { useIntersectionObserver } from "@vueuse/core";
+import { ref } from "vue";
+
+// VARIABLES
+const store = useStateManagement();
+const title_el = ref(null);
+const is_title_visible = ref(false);
+
+useIntersectionObserver(title_el, ([{ isIntersecting }]) => {
+  if (isIntersecting) {
+    is_title_visible.value = true;
+    store.changeNav("HOME");
+  }
+});
 </script>
 
 <template>
@@ -11,7 +26,7 @@ import { social_media, contacts } from "@/modules/data";
         <div
           class="text-xs sm:text-3xl text-center sm:text-left sm:w-9/12 mt-5 sm:mt-0 animate-fade-in"
         >
-          <div class="flex justify-center">
+          <div ref="title_el" class="flex justify-center">
             <div class="w-6/12 sm:w-12/12">
               Currently Available For Software Development
             </div>
