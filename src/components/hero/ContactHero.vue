@@ -5,75 +5,91 @@ import { contacts } from "@/modules/data";
 <template>
   <div
     id="contact"
-    class="mt-20 pt-34 pb-10 sm:px-10 bg-[#111112] rounded-tl-[100px] rounded-bl-[20px] rounded-tr-[380px] rounded-br-[50px]"
+    class="mt-10 sm:mt-20 pt-10 sm:pt-34 pb-5 sm:pb-10 px-5 sm:px-10 bg-[#111112] rounded-4xl sm:rounded-tl-[100px] sm:rounded-bl-[20px] sm:rounded-tr-[380px] sm:rounded-br-[50px]"
   >
     <div class="grid grid-cols-12">
-      <div class="col-span-7">
-        <div class="text-3xl font-bold text-primary mb-16 font-caveat">
+      <div class="order-2 sm:order-1 col-span-12 sm:col-span-7 mt-10 sm:mt-0">
+        <div class="text-lg sm:text-3xl font-bold text-primary font-caveat">
           <div class="flex items-center gap-2">
             <hr class="w-20" />
             Need Some Project?
           </div>
         </div>
-        <div class="flex flex-col">
-          <div class="text-5xl font-bold">Let’s Build Something Together</div>
-          <div class="text-3xl font-bold mt-2">
+        <div class="mt-5 sm:mt-16 flex flex-col">
+          <div class="text-2xl sm:text-5xl font-bold">
+            Let’s Build Something Together
+          </div>
+          <div class="text-lg sm:text-3xl font-bold mt-2">
             Fixed a meeting, Starting Concept, Make a Design, Make Project Flow
             and Finish the Project
           </div>
         </div>
         <hr class="text-primary mt-3" />
-        <div class="mt-15">
+        <div class="mt-5 sm:mt-15">
           <a
             :href="'mailto:' + contacts.email.address"
             target="_blank"
-            class="flex items-center gap-5 bg-neutral-800 rounded-2xl p-5 hover:scale-105 duration-300"
+            class="flex items-center gap-5 bg-neutral-800 rounded-2xl p-3 sm:p-5 hover:scale-105 duration-300"
           >
             <div
               class="w-15 h-15 rounded-full bg-primary p-3 flex items-center justify-center"
             >
-              <i :class="contacts.email.icon" class="text-3xl text-black"></i>
+              <i
+                :class="contacts.email.icon"
+                class="text-xl sm:text-3xl text-black"
+              ></i>
             </div>
             <div>
-              <div class="text-2xl text-neutral-300">Email</div>
+              <div class="text-lg sm:text-2xl text-neutral-300">Email</div>
               <a
                 :href="'mailto:' + contacts.email.address"
                 target="_blank"
-                class="text-xl hover:text-[#c8f31d]"
+                class="sm:text-xl hover:text-[#c8f31d]"
               >
                 {{ contacts.email.address }}
               </a>
             </div>
             <div class="ms-auto">
-              <i class="fa-solid fa-arrow-right text-3xl text-primary"></i>
+              <i
+                class="fa-solid fa-arrow-right text-xl sm:text-3xl text-primary"
+              ></i>
             </div>
           </a>
           <a
             :href="contacts.address.link"
             target="_blank"
-            class="mt-5 flex items-center gap-5 bg-neutral-800 rounded-2xl p-5 hover:scale-105 duration-300"
+            class="mt-5 flex items-center gap-5 bg-neutral-800 rounded-2xl p-3 sm:p-5 hover:scale-105 duration-300"
           >
             <div
               class="w-15 h-15 rounded-full bg-primary p-3 flex items-center justify-center"
             >
-              <i :class="contacts.address.icon" class="text-3xl text-black"></i>
+              <i
+                :class="contacts.address.icon"
+                class="text-xl sm:text-3xl text-black"
+              ></i>
             </div>
             <div>
-              <div class="text-2xl text-neutral-300">Address</div>
-              <div class="text-xl">
+              <div class="text-lg sm:text-2xl text-neutral-300">Address</div>
+              <div class="sm:text-xl">
                 {{ contacts.address.address }}
               </div>
             </div>
             <div class="ms-auto">
-              <i class="fa-solid fa-arrow-right text-3xl text-primary"></i>
+              <i
+                class="fa-solid fa-arrow-right text-xl sm:text-3xl text-primary"
+              ></i>
             </div>
           </a>
         </div>
       </div>
-      <div class="col-span-5 flex justify-end">
-        <div class="w-10/12">
-          <img src="@/assets/images/animation-personal-007.png" alt="" />
-        </div>
+      <div
+        class="order-1 sm:order-2 col-span-12 sm:col-span-5 flex justify-center sm:justify-end"
+      >
+        <img
+          src="@/assets/images/animation-personal-007.png"
+          alt=""
+          class="w-[200px] sm:w-auto"
+        />
       </div>
     </div>
   </div>

@@ -8,9 +8,9 @@ const getCurrentYear = () => {
 </script>
 
 <template>
-  <div id="footer" class="py-10 text-xl px-10">
-    <div class="flex gap-3 justify-between">
-      <div>
+  <div id="footer" class="py-10 text-sm sm:text-xl px-5 sm:px-10">
+    <div class="flex flex-wrap gap-3 justify-center sm:justify-between">
+      <div class="w-12/12 sm:w-6/12 text-center sm:text-left">
         Copyright © {{ getCurrentYear() }}
         <span class="text-primary">Hanhan Septian</span> All rights reserved.
       </div>

@@ -3,6 +3,7 @@ import { ref } from "vue";
 import RGBButton from "./utils/RGBButton.vue";
 import { contacts } from "@/modules/data";
 import { isMobileScreen } from "@/modules";
+import Drawer from "./utils/Drawer.vue";
 
 // VARIABLES
 const navigations = ref([
@@ -48,9 +49,52 @@ const current_nav = ref("HOME");
       </a>
     </div>
     <div v-if="isMobileScreen()">
-      <button>
-        <i class="fa-solid fa-bars"></i>
-      </button>
+      <Drawer>
+        <template #trigger>
+          <button>
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </template>
+        <template #content>
+          <div>
+            <router-link class="text-lg sm:text-4xl font-semibold" to="#home">
+              <div class="fa-solid fa-fire text-primary"></div>
+              Hanhan Septian
+            </router-link>
+            <div class="mt-5">
+              <div v-for="nav in navigations">
+                <a
+                  :key="nav.name"
+                  :href="nav.path"
+                  class="nav-link md:text-xl"
+                  :class="{ 'nav-active': current_nav === nav.name }"
+                  @click="current_nav = nav.name"
+                >
+                  {{ nav.name }}
+                </a>
+              </div>
+            </div>
+            <div class="mt-5">
+              <a
+                :href="
+                  'https://api.whatsapp.com/send?phone=62' +
+                  contacts.whatsapp.number
+                "
+                target="_blank"
+              >
+                <RGBButton class="hover:scale-105">
+                  <template #append>
+                    <i class="fa-solid fa-arrow-right"></i>
+                  </template>
+                  <template #text>
+                    <div class="text-xs">Let's Talk</div>
+                  </template>
+                </RGBButton>
+              </a>
+            </div>
+          </div>
+        </template>
+      </Drawer>
     </div>
   </div>
 </template>

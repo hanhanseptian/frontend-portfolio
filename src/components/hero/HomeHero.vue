@@ -6,19 +6,25 @@ import { social_media } from "@/modules/data";
 <template>
   <div id="home" class="home-hero -mt-34 sm:-mt-20 pt-44 px-5 sm:px-10">
     <div class="grid grid-cols-12 gap-3">
-      <div class="col-span-1 bg-amber-300 rounded-2xl"></div>
-      <div class="col-span-5 sm:col-span-6 sm:pl-10">
-        <div class="text-xs sm:text-3xl sm:w-9/12 font-medium fade-in">
-          <span> Currently Available For Software Development </span>
+      <div class="order-3 sm:order-1 col-span-1 bg-amber-300 rounded-2xl"></div>
+      <div class="order-2 sm:order-2 col-span-12 sm:col-span-6 sm:pl-10">
+        <div
+          class="text-xs sm:text-3xl text-center sm:text-left sm:w-9/12 mt-5 sm:mt-0 font-medium fade-in"
+        >
+          <div class="flex justify-center">
+            <div class="w-6/12 sm:w-12/12">
+              Currently Available For Software Development
+            </div>
+          </div>
           <hr class="sm:mt-5" />
         </div>
-        <div class="mt-5 sm:mt-20 fade-in">
-          <div class="text-2xl sm:text-9xl font-semibold">Software</div>
-          <div class="text-4xl sm:text-[150px] font-bold text-primary sm:mt-5">
+        <div class="mt-5 sm:mt-20 fade-in text-center sm:text-left">
+          <div class="text-4xl sm:text-9xl font-semibold">Software</div>
+          <div class="text-6xl sm:text-[150px] font-bold text-primary sm:mt-5">
             Developer
           </div>
         </div>
-        <div class="flex gap-2 sm:mt-15">
+        <div class="flex gap-2 mt-15 sm:mt-15 justify-center sm:justify-start">
           <RGBButton class="hover:scale-105">
             <template #button>
               <button
@@ -33,9 +39,13 @@ import { social_media } from "@/modules/data";
             </template>
           </RGBButton>
         </div>
-        <div class="mt-6 sm:mt-15 slide-in duration-700">
+        <div
+          class="mt-10 sm:mt-15 slide-in duration-700 text-center sm:text-left"
+        >
           <div class="text-xs sm:text-2xl">Follow Me:</div>
-          <div class="flex gap-4 sm:gap-10 text-sm sm:text-3xl mt-2 sm:mt-5">
+          <div
+            class="flex gap-4 sm:gap-10 text-sm sm:text-3xl mt-2 sm:mt-5 justify-center sm:justify-start"
+          >
             <a
               v-for="item in social_media"
               :key="item.name"
@@ -49,7 +59,9 @@ import { social_media } from "@/modules/data";
           </div>
         </div>
       </div>
-      <div class="col-span-5 flex justify-center items-center">
+      <div
+        class="order-1 sm:order-3 col-span-12 sm:col-span-5 flex justify-center items-center"
+      >
         <div
           class="relative border-2 border-white rounded-full h-[40vw] w-[40vw] overflow-hidden bg-neutral-950"
         >
