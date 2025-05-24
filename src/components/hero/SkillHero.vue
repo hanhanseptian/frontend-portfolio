@@ -111,7 +111,7 @@ useIntersectionObserver(tech_el, ([{ isIntersecting }]) => {
               </div>
             </div>
             <div class="flex gap-4 ml-4">
-              <div v-for="item in tech_stack">
+              <div v-for="item in tech_stack" class="animate-pulse">
                 <div class="p-5 sm:p-10 bg-neutral-950 rounded-2xl">
                   <div
                     class="text-center flex flex-col items-center justify-center"

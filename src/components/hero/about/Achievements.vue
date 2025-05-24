@@ -12,7 +12,9 @@ import { achievements } from "@/modules/data";
       />
     </div>
     <div class="col-span-12 sm:col-span-7">
-      <div class="text-xl sm:text-5xl font-semibold">Achievements</div>
+      <div class="text-xl sm:text-5xl font-semibold">
+        Achievements & Licence
+      </div>
       <div class="mt-2 sm:mt-5 text-sm sm:text-2xl">
         I have a passion for coding and software development, and I am always
         eager to learn new technologies and improve my skills. I have
