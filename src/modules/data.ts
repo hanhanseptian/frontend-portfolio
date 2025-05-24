@@ -41,7 +41,7 @@ export const contacts = {
     color: "text-green-500",
   },
   portfolio: {
-    link: "https://bit.ly/portfolio-hanhan-septian",
+    link: "https://drive.google.com/file/d/1uwoDjelIqw-iZ_xnIP7LhDN2_fT2oeKh/view?usp=sharing",
   },
 };
 export const educations = [
